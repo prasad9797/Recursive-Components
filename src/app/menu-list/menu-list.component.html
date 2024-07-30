@@ -1,0 +1,14 @@
+<div>
+  <span>
+    {{ Item.name }}
+    <span (click)="toggleExpand()" *ngIf="Item.child">
+      {{ expanded ? 'v' : '>' }}
+    </span>
+  </span>
+  <div *ngIf="expanded && Item.child">
+    <app-menu-list
+      *ngFor="let childItem of Item.child"
+      [Item]="childItem"
+    ></app-menu-list>
+  </div>
+</div>
